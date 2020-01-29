@@ -39,6 +39,12 @@
   color: white;
 }
 
+.quiz {
+  background-color: white;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
 .container {
   display: flex;
   flex: 1;
