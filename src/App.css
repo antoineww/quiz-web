@@ -1,4 +1,5 @@
 #root {
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -31,7 +32,8 @@
   color: #61dafb;
 }
 
-.App-header {
+.App-header,
+.results {
   flex: 1;
   background-color: #282c34;
   color: white;
@@ -42,4 +44,22 @@
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+}
+
+.listItem {
+  padding-bottom: 5vh;
+}
+
+.results li {
+  text-align: left;
+  flex-direction: row;
+  display: flex;
+}
+
+.resultIcon {
+  min-width: 10vw;
 }
