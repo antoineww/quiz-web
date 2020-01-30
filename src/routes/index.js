@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 
-import { QUIZ_STAGES } from "./../resources/constants";
+import { QUIZ_STAGES, DEFAULT_STATE_QUIZ } from "./../resources/constants";
 import Home from "./../screens/home";
 import Quiz from "./../screens/quiz";
 import Results from "./../screens/results";
 
-const defaultState = {
-  stage: QUIZ_STAGES.HOME,
-  timeStart: null,
-  timeEnd: null,
-  questions: []
-};
-
 const routes = (props = {}) => {
-  const [stateQuiz, setStateQuiz] = useState(defaultState);
+  const [stateQuiz, setStateQuiz] = useState(DEFAULT_STATE_QUIZ);
 
   const { stage } = stateQuiz;
 

@@ -3,3 +3,10 @@ export const QUIZ_STAGES = {
   IN_QUIZ: "IN_QUIZ",
   RESULTS: "RESULTS"
 };
+
+export const DEFAULT_STATE_QUIZ = {
+  stage: QUIZ_STAGES.HOME,
+  timeStart: null,
+  timeEnd: null,
+  questions: []
+};
