@@ -2,6 +2,7 @@ import React from "react";
 import strings from "./../resources/strings";
 import { QUIZ_STAGES, DEFAULT_STATE_QUIZ } from "./../resources/constants";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { getQuizScore } from "./../helpers/common";
 
 const Results = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
@@ -17,10 +18,14 @@ const Results = (props = {}) => {
       stage: QUIZ_STAGES.HOME
     });
 
+  const { questionsWithAnswers } = props;
+
+  const score = getQuizScore(questionsWithAnswers);
+
   return (
     <div class="container results">
       <h1>{strings.results_header} </h1>
-      <h1>3/10</h1>
+      <h1>{score}</h1>
       <ul id="list">
         <li class="listItem">
           <div class="resultIcon">
