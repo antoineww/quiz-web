@@ -2,6 +2,7 @@ import React from "react";
 
 import strings from "./../resources/strings";
 import { QUIZ_STAGES } from "./../resources/constants";
+import { getQuizProgess } from "./../helpers/common";
 
 const Quiz = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
@@ -11,6 +12,13 @@ const Quiz = (props = {}) => {
       stage: QUIZ_STAGES.HOME
     });
 
+  const { questionsWithAnswers, questionCurrentIndex } = props;
+
+  const quizProgress = getQuizProgess(
+    questionCurrentIndex,
+    questionsWithAnswers
+  );
+
   return (
     <div class="container quiz">
       <h1>{strings.quiz_header}</h1>
@@ -19,7 +27,7 @@ const Quiz = (props = {}) => {
         <button class="button">{strings.quiz_true}</button>
         <button class="button">{strings.quiz_false}</button>
       </div>
-      <p>1 of 10</p>
+      <p>{quizProgress}</p>
       <button class="button" onClick={() => quitQuiz()}>
         {strings.quiz_quit}
       </button>
