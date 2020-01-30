@@ -5,7 +5,7 @@ import Home from "./../screens/home";
 import Quiz from "./../screens/quiz";
 import Results from "./../screens/results";
 
-const routes = (props = {}) => {
+const Routes = (props = {}) => {
   const [stateQuiz, setStateQuiz] = useState(DEFAULT_STATE_QUIZ);
 
   const { stage } = stateQuiz;
@@ -22,4 +22,4 @@ const routes = (props = {}) => {
   }
 };
 
-export default routes;
+export default Routes;

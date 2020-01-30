@@ -9,7 +9,7 @@ const Quiz = (props = {}) => {
 
   const quitQuiz = () =>
     setStateQuiz({
-      stage: QUIZ_STAGES.HOME
+      stage: QUIZ_STAGES.RESULTS
     });
 
   const { questionsWithAnswers, questionCurrentIndex } = props;

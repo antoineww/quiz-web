@@ -9,5 +9,9 @@ export default {
   quiz_mock_question: "Unturned originally started as a Roblox game.",
   quiz_true: "True",
   quiz_false: "False",
-  quiz_quit: "QUIT"
+  quiz_quit: "QUIT",
+
+  results_header: "You scored",
+  results_play_again: "PLAY AGAIN?",
+  results_exit: "Exit"
 };
