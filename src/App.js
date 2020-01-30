@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Home from "./screens/quiz";
+import Routes from "./routes/index";
+
 import "./App.css";
 import { store } from "./redux";
 import { Provider } from "react-redux";
@@ -8,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Home />
+        <Routes />
       </Provider>
     );
   }
