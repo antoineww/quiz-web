@@ -38,8 +38,20 @@ export const makeAQuizQuestion = (questionWithAnswer = {}) =>
     ...questionWithAnswer
   });
 
-export const answerQuizQuestion = (
+export const applyAnswer = (
+  stateQuiz = {},
+  setStateQuiz = () => {},
   questionCurrentIndex = 0,
-  questionsWithAnswers = [{}],
+  givenQuestionsWithAnswers = [{}],
   attempted_answer = null
-) => ({ ...questionsWithAnswers[questionCurrentIndex], attempted_answer });
+) => {
+  const questionsWithAnswers = givenQuestionsWithAnswers.map(
+    question => question
+  );
+
+  questionsWithAnswers[
+    questionCurrentIndex
+  ].attempted_answer = attempted_answer;
+
+  setStateQuiz({ ...stateQuiz, questionsWithAnswers });
+};
