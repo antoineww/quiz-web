@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import strings from "./../../resources/strings";
 import { QUIZ_STAGES } from "./../../resources/constants";
 import { getQuizProgess } from "./../../helpers/common";
+
 import { BooleanButtonsSection } from "./components";
+import { onQuestionAnswered } from "./helpers";
 
 const Quiz = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
-
-  const quitQuiz = () =>
-    setStateQuiz({
-      ...stateQuiz,
-      stage: QUIZ_STAGES.RESULTS
-    });
-
-  const { questionsWithAnswers, questionCurrentIndex } = stateQuiz;
+  const {
+    questionsWithAnswers,
+    questionCurrentIndex,
+    goToQuestion
+  } = stateQuiz;
   const currentQuestion = questionsWithAnswers[questionCurrentIndex];
+
+  /* eslint-disable react-hooks/exhaustive-deps */
+  useEffect(() => onQuestionAnswered(stateQuiz, setStateQuiz), [goToQuestion]);
+  /* eslint-enable */
 
   const booleanButtonsSection = (
     <BooleanButtonsSection
@@ -33,6 +36,12 @@ const Quiz = (props = {}) => {
     questionCurrentIndex,
     questionsWithAnswers
   );
+
+  const quitQuiz = () =>
+    setStateQuiz({
+      ...stateQuiz,
+      stage: QUIZ_STAGES.RESULTS
+    });
 
   return (
     <div class="container quiz">

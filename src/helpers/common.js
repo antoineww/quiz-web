@@ -37,21 +37,3 @@ export const makeAQuizQuestion = (questionWithAnswer = {}) =>
     ...DEFAULT_QUESTION_WITH_ANSWER,
     ...questionWithAnswer
   });
-
-export const applyAnswer = (
-  stateQuiz = {},
-  setStateQuiz = () => {},
-  questionCurrentIndex = 0,
-  givenQuestionsWithAnswers = [{}],
-  attempted_answer = null
-) => {
-  const questionsWithAnswers = givenQuestionsWithAnswers.map(
-    question => question
-  );
-
-  questionsWithAnswers[
-    questionCurrentIndex
-  ].attempted_answer = attempted_answer;
-
-  setStateQuiz({ ...stateQuiz, questionsWithAnswers });
-};

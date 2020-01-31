@@ -26,5 +26,6 @@ export const DEFAULT_STATE_QUIZ = {
   timeStart: null,
   timeEnd: null,
   questionsWithAnswers: [],
-  questionCurrentIndex: 0
+  questionCurrentIndex: 0,
+  goToQuestion: 0
 };
