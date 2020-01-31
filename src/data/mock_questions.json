@@ -1,0 +1,85 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "History",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "The Kingdom of Prussia briefly held land in Estonia.",
+      "correct_answer": "False",
+      "incorrect_answers": ["True"]
+    },
+    {
+      "category": "History",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "Joseph Stalin&#039;s real name was Ioseb Bessarionis dze Dzugashvili.",
+      "correct_answer": "True",
+      "incorrect_answers": ["False"]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "It was once believed that injecting shark cartilage into people would prevent them from contracting cancer.",
+      "correct_answer": "True",
+      "incorrect_answers": ["False"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "In &quot;Portal 2&quot;, Cave Johnson started out Aperture Science as a shower curtain company.",
+      "correct_answer": "True",
+      "incorrect_answers": ["False"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "TF2: Sentry rocket damage falloff is calculated based on the distance between the sentry and the enemy, not the engineer and the enemy",
+      "correct_answer": "False",
+      "incorrect_answers": ["True"]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "The song &quot;Mystery Train&quot; was released by artist &quot;Little Junior&#039;s Blue Flames&quot; in 1953.",
+      "correct_answer": "True",
+      "incorrect_answers": ["False"]
+    },
+    {
+      "category": "History",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "The Battle of Trafalgar took place on October 23rd, 1805",
+      "correct_answer": "False",
+      "incorrect_answers": ["True"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "All of these maps were in &quot;Tom Clancy&#039;s Rainbow Six Siege&quot; on its initial release: House, Clubhouse, Border, Consulate.",
+      "correct_answer": "False",
+      "incorrect_answers": ["True"]
+    },
+    {
+      "category": "History",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "During the Winter War, the amount of Soviet Union soliders that died or went missing was five times more than Finland&#039;s.",
+      "correct_answer": "True",
+      "incorrect_answers": ["False"]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "Pete Townshend&#039;s solo album, &quot;White City: A Novel&quot;, is set in the metropolitan area of Chicago.",
+      "correct_answer": "False",
+      "incorrect_answers": ["True"]
+    }
+  ]
+}

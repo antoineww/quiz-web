@@ -1,14 +1,24 @@
 import React from "react";
 import strings from "./../resources/strings";
-import { QUIZ_STAGES } from "./../resources/constants";
+import { QUIZ_STAGES, DEFAULT_STATE_QUIZ } from "./../resources/constants";
+import { makeAQuizQuestion } from "./../helpers/common";
+import questionsData from "./../data/mock_questions";
 
 const Home = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
 
+  // TODO: Remove mock data
+  const { results } = questionsData;
+  const questionsWithAnswers = results.map(question =>
+    makeAQuizQuestion(question)
+  );
+  //
+
   const beginQuiz = () =>
     setStateQuiz({
-      ...stateQuiz,
-      stage: QUIZ_STAGES.IN_QUIZ
+      ...DEFAULT_STATE_QUIZ,
+      stage: QUIZ_STAGES.IN_QUIZ,
+      questionsWithAnswers
     });
 
   return (
