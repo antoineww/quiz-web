@@ -30,6 +30,8 @@ export const onQuestionAnswered = (stateQuiz = {}, setStateQuiz = () => {}) => {
     !Array.isArray(questionsWithAnswers);
   if (potentialError) return;
 
+  if (questionCurrentIndex === goToQuestion) return;
+
   if (
     questionCurrentIndex < goToQuestion &&
     goToQuestion < questionsWithAnswers.length
