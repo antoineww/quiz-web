@@ -1,25 +1,9 @@
 import React from "react";
 import strings from "./../resources/strings";
-import { QUIZ_STAGES, DEFAULT_STATE_QUIZ } from "./../resources/constants";
-import { makeAQuizQuestion } from "./../helpers/common";
-import questionsData from "./../data/mock_questions";
+import { beginQuiz } from "./../helpers/hooks";
 
 const Home = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
-
-  // TODO: Remove mock data
-  const { results } = questionsData;
-  const questionsWithAnswers = results.map(question =>
-    makeAQuizQuestion(question)
-  );
-  //
-
-  const beginQuiz = () =>
-    setStateQuiz({
-      ...DEFAULT_STATE_QUIZ,
-      stage: QUIZ_STAGES.IN_QUIZ,
-      questionsWithAnswers
-    });
 
   return (
     <div class="App-header">
@@ -29,7 +13,7 @@ const Home = (props = {}) => {
         {strings.home_description_p1} <br /> {strings.home_description_p2}{" "}
       </h2>
       <h2>{strings.home_challenge}</h2>
-      <button class="button" onClick={() => beginQuiz()}>
+      <button class="button" onClick={() => beginQuiz(setStateQuiz)}>
         {strings.home_begin}
       </button>
     </div>

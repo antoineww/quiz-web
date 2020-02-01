@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 
 import strings from "./../../resources/strings";
-import { QUIZ_STAGES } from "./../../resources/constants";
 import { getQuizProgess } from "./../../helpers/common";
 
 import { BooleanButtonsSection } from "./components";
 import { onQuestionAnswered } from "./helpers";
+import { quitQuiz } from "./../../helpers/hooks";
 
 const Quiz = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
@@ -37,12 +37,6 @@ const Quiz = (props = {}) => {
     questionsWithAnswers
   );
 
-  const quitQuiz = () =>
-    setStateQuiz({
-      ...stateQuiz,
-      stage: QUIZ_STAGES.RESULTS
-    });
-
   return (
     <div class="container quiz">
       <h1>{currentQuestion.category}</h1>
@@ -51,7 +45,7 @@ const Quiz = (props = {}) => {
         {booleanButtonsSection}
       </div>
       <p>{quizProgress}</p>
-      <button class="button" onClick={() => quitQuiz()}>
+      <button class="button" onClick={() => quitQuiz(stateQuiz, setStateQuiz)}>
         {strings.quiz_quit}
       </button>
     </div>

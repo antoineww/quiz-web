@@ -1,24 +1,12 @@
 import React from "react";
 import strings from "./../resources/strings";
-import { QUIZ_STAGES, DEFAULT_STATE_QUIZ } from "./../resources/constants";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { getQuizScore } from "./../helpers/common";
+import { beginQuiz, exitQuiz } from "./../helpers/hooks";
 
 const Results = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
-
-  const beginNewQuiz = () =>
-    setStateQuiz({
-      ...DEFAULT_STATE_QUIZ,
-      stage: QUIZ_STAGES.IN_QUIZ
-    });
-
-  const exitQuiz = () =>
-    setStateQuiz({
-      stage: QUIZ_STAGES.HOME
-    });
-
-  const { questionsWithAnswers } = props;
+  const { questionsWithAnswers } = stateQuiz;
 
   const score = getQuizScore(questionsWithAnswers);
 
@@ -112,10 +100,10 @@ const Results = (props = {}) => {
           </div>
         </li>
       </ul>
-      <button class="button" onClick={() => beginNewQuiz()}>
+      <button class="button" onClick={() => beginQuiz(setStateQuiz)}>
         {strings.results_play_again}
       </button>
-      <button class="button" onClick={() => exitQuiz()}>
+      <button class="button" onClick={() => exitQuiz(setStateQuiz)}>
         {strings.results_exit}
       </button>
     </div>
