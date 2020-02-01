@@ -1,5 +1,14 @@
 import { QUIZ_STAGES } from "./../../resources/constants";
 
+export const areStringsEqual = (
+  answerA = "A",
+  answerB = "B",
+  ignoreCase = true
+) => {
+  if (ignoreCase) return answerA.toUpperCase() === answerB.toUpperCase();
+  return answerA === answerB;
+};
+
 export const applyAnswer = (
   stateQuiz = {},
   setStateQuiz = () => {},
@@ -8,12 +17,22 @@ export const applyAnswer = (
   attempted_answer = null
 ) => {
   const questionsWithAnswers = givenQuestionsWithAnswers.map(
-    question => question
-  );
+    (questionWithAnswer, index) => {
+      const updatedQuestionWithAnswer = { ...questionWithAnswer };
 
-  questionsWithAnswers[
-    questionCurrentIndex
-  ].attempted_answer = attempted_answer;
+      if (index === questionCurrentIndex) {
+        updatedQuestionWithAnswer.attempted_answer = attempted_answer;
+        const { correct_answer } = updatedQuestionWithAnswer;
+
+        updatedQuestionWithAnswer.is_correct = areStringsEqual(
+          correct_answer,
+          attempted_answer
+        );
+      }
+
+      return updatedQuestionWithAnswer;
+    }
+  );
 
   const goToQuestion = questionCurrentIndex + 1;
 
@@ -23,12 +42,6 @@ export const applyAnswer = (
 export const onQuestionAnswered = (stateQuiz = {}, setStateQuiz = () => {}) => {
   const { questionsWithAnswers, goToQuestion } = stateQuiz;
   let { questionCurrentIndex } = stateQuiz;
-
-  const potentialError =
-    typeof goToQuestion !== "number" ||
-    typeof questionCurrentIndex !== "number" ||
-    !Array.isArray(questionsWithAnswers);
-  if (potentialError) return;
 
   if (questionCurrentIndex === goToQuestion) return;
 

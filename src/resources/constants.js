@@ -11,7 +11,8 @@ export const DEFAULT_QUESTION_WITH_ANSWER = {
   correct_answer: "True",
   incorrect_answers: ["False"],
 
-  attempted_answer: null
+  attempted_answer: null,
+  is_correct: null
 };
 
 export const ANSWER_TYPES = {

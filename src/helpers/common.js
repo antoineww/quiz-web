@@ -7,7 +7,7 @@ export const getQuizProgess = (
 
 export const getQuizScore = (questionsWithAnswers = []) =>
   `${
-    questionsWithAnswers.filter(question => question.answer === true).length
+    questionsWithAnswers.filter(question => question.is_correct === true).length
   } / ${questionsWithAnswers.length}`;
 
 export const ensureCriticalQuestionProperties = (
@@ -17,6 +17,8 @@ export const ensureCriticalQuestionProperties = (
 
   questionWithAnswer.attempted_answer =
     DEFAULT_QUESTION_WITH_ANSWER.attempted_answer;
+
+  questionWithAnswer.is_correct = DEFAULT_QUESTION_WITH_ANSWER.is_correct;
 
   if (
     typeof questionWithAnswer.correct_answer !== "string" ||
