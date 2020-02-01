@@ -32,8 +32,24 @@ export const ensureCriticalQuestionProperties = (
   return questionWithAnswer;
 };
 
-export const makeAQuizQuestion = (questionWithAnswer = {}) =>
-  ensureCriticalQuestionProperties({
+export const makeAQuizQuestion = (questionWithAnswer = {}) => {
+  const processedQuestionWithAnswer = {
     ...DEFAULT_QUESTION_WITH_ANSWER,
     ...questionWithAnswer
-  });
+  };
+
+  ensureCriticalQuestionProperties(processedQuestionWithAnswer);
+
+  // Parse html characters
+  const domparser = new DOMParser();
+  const {
+    body: { textContent: parsedQuestion }
+  } = domparser.parseFromString(
+    processedQuestionWithAnswer.question,
+    "text/html"
+  );
+
+  processedQuestionWithAnswer.question = parsedQuestion;
+
+  return processedQuestionWithAnswer;
+};
