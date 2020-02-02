@@ -5,10 +5,19 @@ export const getQuizProgess = (
   questionsWithAnswers = []
 ) => `${questionCurrentIndex + 1} of ${questionsWithAnswers.length}`;
 
-export const getQuizScore = (questionsWithAnswers = []) =>
-  `${
-    questionsWithAnswers.filter(question => question.is_correct === true).length
-  } / ${questionsWithAnswers.length}`;
+export const getQuizScore = (questionsWithAnswers = []) => {
+  const numerator = questionsWithAnswers.filter(
+    question => question.is_correct === true
+  ).length;
+  const denominator = questionsWithAnswers.length;
+
+  const percentage = Math.round((numerator / denominator) * 100);
+
+  return {
+    fraction: `${numerator} / ${denominator}`,
+    percentage
+  };
+};
 
 export const ensureCriticalQuestionProperties = (
   possibleQuestionWithAnswer = {}

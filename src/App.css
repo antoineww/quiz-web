@@ -41,6 +41,7 @@ body {
   flex: 1;
   background-color: #282c34;
   color: white;
+  font-weight: bold;
 }
 
 .container {
@@ -76,10 +77,16 @@ body {
 
 ul {
   list-style: none;
+  padding: 0 5vw;
 }
 
 .listItem {
   padding-bottom: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(18px + 2vmin);
 }
 
 .results li {
@@ -89,7 +96,7 @@ ul {
 }
 
 .resultIcon {
-  min-width: 10vw;
+  min-width: 8vw;
 }
 
 @keyframes sheen {
@@ -151,6 +158,14 @@ ul {
   background-color: #fbc261;
   border-radius: 5px;
   padding: 5vh 10vw;
+}
+
+.result-true {
+  color: #cdfb61;
+}
+
+.result-false {
+  color: #fbc261;
 }
 
 .btn-true:focus,

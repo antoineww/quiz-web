@@ -1,18 +1,40 @@
 import React from "react";
 import strings from "./../resources/strings";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlus, FaMinus, FaCircle } from "react-icons/fa";
 import { getQuizScore } from "./../helpers/common";
 import { beginQuiz, exitQuiz } from "./../helpers/hooks";
+
+const getScoreSymbol = is_correct => {
+  switch (is_correct) {
+    case true:
+      return <FaPlus />;
+    case false:
+      return <FaMinus />;
+    default:
+      return <FaCircle />;
+  }
+};
+
+const getScoreClass = is_correct => {
+  switch (is_correct) {
+    case true:
+      return "result-true";
+    case false:
+      return "result-false";
+    default:
+      return "";
+  }
+};
 
 const Results = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
   const { questionsWithAnswers } = stateQuiz;
 
-  const score = getQuizScore(questionsWithAnswers);
+  const { fraction, percentage } = getQuizScore(questionsWithAnswers);
   const resultItems = questionsWithAnswers.map(questionWithAnswer => (
-    <li class="listItem">
+    <li class={`listItem ${getScoreClass(questionWithAnswer.is_correct)}`}>
       <div class="resultIcon">
-        {questionWithAnswer.is_correct === true ? <FaPlus /> : <FaMinus />}
+        {getScoreSymbol(questionWithAnswer.is_correct)}
       </div>
       <div class="resultAnswer">{questionWithAnswer.question}</div>
     </li>
@@ -20,8 +42,10 @@ const Results = (props = {}) => {
 
   return (
     <div class="container results">
-      <h1>{strings.results_header} </h1>
-      <h1>{score}</h1>
+      <h1>
+        {strings.results_header} {`${percentage} %`}
+      </h1>
+      <h1>{fraction}</h1>
       <ul id="list">{resultItems}</ul>
       <div class="footer">
         <button class="btn" onClick={() => beginQuiz(setStateQuiz)}>
