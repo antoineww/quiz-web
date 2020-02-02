@@ -1,0 +1,7 @@
+export const types = {
+  GET_QUESTIONS_START: "GET_QUESTION_START",
+  GET_QUESTIONS: "GET_QUESTIONS",
+  GET_QUESTIONS_END: "GET_QUESTIONS_END"
+};
+
+export default types;

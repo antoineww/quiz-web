@@ -1,25 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
-import { QUIZ_STAGES, DEFAULT_STATE_QUIZ } from "./../resources/constants";
-import Home from "./../screens/home";
-import Quiz from "./../screens/quiz";
-import Results from "./../screens/results";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import actions from "./../redux/actions";
+import ScreenRouter from "./screenRouter";
 
 const Routes = (props = {}) => {
-  const [stateQuiz, setStateQuiz] = useState(DEFAULT_STATE_QUIZ);
+  const {
+    actionsGroup: { getQuestionsAction }
+  } = props;
 
-  const { stage } = stateQuiz;
+  /* eslint-disable react-hooks/exhaustive-deps */
+  useEffect(() => getQuestionsAction(), []);
+  /* eslint-enable */
 
-  const newProps = { ...props, stateQuiz, setStateQuiz };
-
-  switch (stage) {
-    case QUIZ_STAGES.IN_QUIZ:
-      return <Quiz {...newProps} />;
-    case QUIZ_STAGES.RESULTS:
-      return <Results {...newProps} />;
-    default:
-      return <Home {...newProps} />;
-  }
+  return <ScreenRouter {...props} />;
 };
 
-export default Routes;
+export default connect(
+  state => {
+    const {
+      app: { questionsWithAnswers },
+      progress: { gettingQuestions }
+    } = state;
+
+    return {
+      app: { questionsWithAnswers },
+      progress: { gettingQuestions }
+    };
+  },
+  dispatch => ({
+    actionsGroup: bindActionCreators(
+      {
+        getQuestionsAction: actions.getQuestionsAction
+      },
+      dispatch
+    )
+  })
+)(Routes);
