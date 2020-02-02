@@ -23,12 +23,14 @@ const Results = (props = {}) => {
       <h1>{strings.results_header} </h1>
       <h1>{score}</h1>
       <ul id="list">{resultItems}</ul>
-      <button class="button" onClick={() => beginQuiz(setStateQuiz)}>
-        {strings.results_play_again}
-      </button>
-      <button class="button" onClick={() => exitQuiz(setStateQuiz)}>
-        {strings.results_exit}
-      </button>
+      <div class="footer">
+        <button class="btn" onClick={() => beginQuiz(setStateQuiz)}>
+          {strings.results_play_again}
+        </button>
+        <button class="btn btn-exit" onClick={() => exitQuiz(setStateQuiz)}>
+          {strings.results_exit}
+        </button>
+      </div>
     </div>
   );
 };

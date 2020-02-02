@@ -13,7 +13,7 @@ const Home = (props = {}) => {
         {strings.home_description_p1} <br /> {strings.home_description_p2}{" "}
       </h2>
       <h2>{strings.home_challenge}</h2>
-      <button class="button" onClick={() => beginQuiz(setStateQuiz)}>
+      <button className="btn" onClick={() => beginQuiz(setStateQuiz)}>
         {strings.home_begin}
       </button>
     </div>

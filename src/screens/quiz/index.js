@@ -40,14 +40,19 @@ const Quiz = (props = {}) => {
   return (
     <div class="container quiz">
       <h1>{currentQuestion.category}</h1>
-      <div id="box">
-        <h2 id="question">{currentQuestion.question}</h2>
+      <div class="box">
+        <h2 class="question">{currentQuestion.question}</h2>
         {booleanButtonsSection}
       </div>
       <p>{quizProgress}</p>
-      <button class="button" onClick={() => quitQuiz(stateQuiz, setStateQuiz)}>
-        {strings.quiz_quit}
-      </button>
+      <div class="footer">
+        <button
+          class="btn btn-exit"
+          onClick={() => quitQuiz(stateQuiz, setStateQuiz)}
+        >
+          {strings.quiz_quit}
+        </button>
+      </div>
     </div>
   );
 };
