@@ -27,7 +27,7 @@ export const BooleanButtonsSection = ({
 
     const trueButton = (
       <button
-        class="btn btn-true"
+        className="btn btn-true"
         onClick={() => answerQuestion(ANSWER_TYPES.boolean.True)}
       >
         {strings.quiz_true}
@@ -36,7 +36,7 @@ export const BooleanButtonsSection = ({
 
     const falseButton = (
       <button
-        class="btn btn-false"
+        className="btn btn-false"
         onClick={() => answerQuestion(ANSWER_TYPES.boolean.False)}
       >
         {strings.quiz_false}
@@ -44,7 +44,7 @@ export const BooleanButtonsSection = ({
     );
 
     section = (
-      <div class="boolean-buttons-section">
+      <div className="boolean-buttons-section">
         {trueButton} {falseButton}
       </div>
     );

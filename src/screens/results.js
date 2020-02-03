@@ -33,24 +33,24 @@ const Results = (props = {}) => {
   const { fraction, percentage } = getQuizScore(questionsWithAnswers);
   const header = percentage ? `${strings.results_header} ${percentage} %` : "";
   const resultItems = questionsWithAnswers.map(questionWithAnswer => (
-    <li class={`listItem ${getScoreClass(questionWithAnswer.is_correct)}`}>
-      <div class="resultIcon">
+    <li className={`listItem ${getScoreClass(questionWithAnswer.is_correct)}`}>
+      <div className="resultIcon">
         {getScoreSymbol(questionWithAnswer.is_correct)}
       </div>
-      <div class="resultAnswer">{questionWithAnswer.question}</div>
+      <div className="resultAnswer">{questionWithAnswer.question}</div>
     </li>
   ));
 
   return (
-    <div class="container results">
+    <div className="container results">
       <h1>{header}</h1>
       <h1>{fraction}</h1>
       <ul id="list">{resultItems}</ul>
-      <div class="footer">
-        <button class="btn" onClick={() => beginQuiz(setStateQuiz)}>
+      <div className="footer">
+        <button className="btn" onClick={() => beginQuiz(setStateQuiz)}>
           {strings.results_play_again}
         </button>
-        <button class="btn btn-exit" onClick={() => exitQuiz(setStateQuiz)}>
+        <button className="btn btn-exit" onClick={() => exitQuiz(setStateQuiz)}>
           {strings.results_exit}
         </button>
       </div>

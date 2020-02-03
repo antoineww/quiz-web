@@ -4,9 +4,9 @@ import { loadQuiz } from "../helpers/navigationHooks";
 
 export const LoadingButton = (props = {}) => (
   <button className="btn btn-loading">
-    <img src="logo.svg" alt="logo" class="loader-logo" />
+    <img src="logo.svg" alt="logo" className="loader-logo" />
     {strings.home_loading}
-    <img src="logo.svg" alt="logo" class="loader-logo" />
+    <img src="logo.svg" alt="logo" className="loader-logo" />
   </button>
 );
 
@@ -23,9 +23,9 @@ const Home = (props = {}) => {
   } = props;
 
   return (
-    <div class="App-header">
+    <div className="App-header">
       <h1>{strings.home_header}</h1>
-      <img src="logo.svg" alt="logo" class="App-logo" />
+      <img src="logo.svg" alt="logo" className="App-logo" />
       <h2>
         {strings.home_description_p1} <br /> {strings.home_description_p2}
       </h2>
