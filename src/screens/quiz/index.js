@@ -4,7 +4,7 @@ import strings from "./../../resources/strings";
 
 import { onQuestionAnswered } from "./helpers";
 import { quitQuiz } from "./../../helpers/hooks";
-import { QuizTop } from "./components";
+import { QuizContent } from "./components";
 
 const Quiz = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
@@ -19,7 +19,7 @@ const Quiz = (props = {}) => {
 
   return (
     <div class="container quiz">
-      <QuizTop {...props} />
+      <QuizContent {...props} />
       <div class="footer">
         <button
           class="btn btn-exit"

@@ -7,6 +7,7 @@ export default {
 
   quiz_header: "Entertainment: Video Games",
   quiz_mock_question: "Unturned originally started as a Roblox game.",
+  quiz_not_found: "Woops, Quiz Unavailable",
   quiz_true: "True",
   quiz_false: "False",
   quiz_quit: "QUIT",

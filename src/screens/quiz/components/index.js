@@ -1,2 +1,3 @@
 export * from "./booleanButtonsSection";
-export * from "./quizTop";
+export * from "./quizContent";
+export * from "./quizNotFound";

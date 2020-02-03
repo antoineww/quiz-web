@@ -1,14 +1,15 @@
 import React from "react";
-import { getQuizProgess } from "./../../../helpers/common";
+import { getQuizProgess } from "../../../helpers/common";
 import { BooleanButtonsSection } from "./booleanButtonsSection";
+import { QuizNotFound } from "./quizNotFound";
 
-export const QuizTop = (props = {}) => {
+export const QuizContent = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
 
   const { questionsWithAnswers, questionCurrentIndex } = stateQuiz;
 
   if (!Array.isArray(questionsWithAnswers) || questionsWithAnswers.length < 1)
-    return null;
+    return <QuizNotFound />;
 
   const currentQuestion = questionsWithAnswers[questionCurrentIndex];
 
@@ -30,7 +31,7 @@ export const QuizTop = (props = {}) => {
   );
 
   return (
-    <div>
+    <div class="quiz-content">
       <h1>{currentQuestion.category}</h1>
       <div class="box">
         <h2 class="question">{currentQuestion.question}</h2>
