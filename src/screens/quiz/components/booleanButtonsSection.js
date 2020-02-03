@@ -1,7 +1,7 @@
 import React from "react";
-import strings from "./../../resources/strings";
-import { ANSWER_TYPES } from "./../../resources/constants";
-import { applyAnswer } from "./helpers";
+import strings from "./../../../resources/strings";
+import { ANSWER_TYPES } from "./../../../resources/constants";
+import { applyAnswer } from "./../helpers";
 
 export const BooleanButtonsSection = ({
   stateQuiz,

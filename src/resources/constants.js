@@ -28,5 +28,6 @@ export const DEFAULT_STATE_QUIZ = {
   timeEnd: null,
   questionsWithAnswers: [],
   questionCurrentIndex: 0,
-  goToQuestion: 0
+  goToQuestion: 0,
+  startNew: false
 };
