@@ -2,7 +2,12 @@ import { getQuestions } from "./../../data/api";
 import constants from "./../constants";
 
 export const getQuestionsAction = () => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const {
+      progress: { getttingQuestions }
+    } = getState();
+    if (getttingQuestions) return;
+
     dispatch({
       type: constants.GET_QUESTIONS_START
     });

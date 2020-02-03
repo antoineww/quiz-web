@@ -1,4 +1,8 @@
-export const canSupplyFreshQuestions = (stateQuiz, setStateQuiz, props) => {
+export const canPrepareQuestionsForNewQuiz = (
+  stateQuiz,
+  setStateQuiz,
+  props
+) => {
   const { startNew } = stateQuiz;
 
   if (startNew === true) {
@@ -15,6 +19,21 @@ export const canSupplyFreshQuestions = (stateQuiz, setStateQuiz, props) => {
       ...stateQuiz,
       questionsWithAnswers,
       startNew: false
+    });
+  }
+};
+
+export const canSupplyFreshQuestions = (stateQuiz, setStateQuiz, props) => {
+  const { getFreshQuestions } = stateQuiz;
+  const {
+    actionsGroup: { getQuestionsAction }
+  } = props;
+
+  if (getFreshQuestions === true) {
+    getQuestionsAction();
+    setStateQuiz({
+      ...stateQuiz,
+      getFreshQuestions: false
     });
   }
 };

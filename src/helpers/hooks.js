@@ -21,5 +21,6 @@ export const quitQuiz = (stateQuiz = {}, setStateQuiz = () => {}) =>
 // Go To Home Screen
 export const exitQuiz = (setStateQuiz = () => {}) =>
   setStateQuiz({
-    stage: QUIZ_STAGES.HOME
+    stage: QUIZ_STAGES.HOME,
+    getFreshQuestions: true
   });

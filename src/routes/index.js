@@ -11,6 +11,7 @@ const Routes = (props = {}) => {
   } = props;
 
   /* eslint-disable react-hooks/exhaustive-deps */
+  // onMount Load questions
   useEffect(() => getQuestionsAction(), []);
   /* eslint-enable */
 
