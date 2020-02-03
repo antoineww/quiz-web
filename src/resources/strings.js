@@ -14,6 +14,6 @@ export default {
   quiz_quit: "QUIT",
 
   results_header: "You scored",
-  results_play_again: "PLAY AGAIN?",
-  results_exit: "Exit"
+  results_play_again: "TRY AGAIN?",
+  results_exit: "PLAY AGAIN?"
 };
