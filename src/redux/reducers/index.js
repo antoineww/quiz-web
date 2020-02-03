@@ -11,7 +11,11 @@ const root = combineReducers({
   app
 });
 
-const logger = createLogger(); // TODO: For debugging purposes
+// TODO: For debugging purposes
+const enabled = true;
+const logger = createLogger({
+  predicate: (getState, action) => enabled
+});
 
 const composed = compose(
   applyMiddleware(
