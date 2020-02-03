@@ -4,6 +4,7 @@ export default {
   home_description_p2: "10 True or False questions.",
   home_challenge: "Can you score 100%?",
   home_begin: "BEGIN",
+  home_loading: "Loading",
 
   quiz_header: "Entertainment: Video Games",
   quiz_mock_question: "Unturned originally started as a Roblox game.",

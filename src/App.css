@@ -23,6 +23,13 @@ body {
   pointer-events: none;
 }
 
+.loader-logo {
+  animation: App-logo-spin infinite 5s linear;
+  height: 4vmin;
+  pointer-events: none;
+  color: #282c34;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -118,6 +125,11 @@ ul {
 }
 
 .btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -133,6 +145,12 @@ ul {
   padding: 0.3vh 5vh;
   background-color: #61dafb;
   border-radius: 300px;
+}
+
+.btn-loading {
+  border-color: #61dafb;
+  background-color: #282c34;
+  color: #61dafb;
 }
 
 .btn:before {
