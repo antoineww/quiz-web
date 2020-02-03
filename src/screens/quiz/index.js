@@ -8,9 +8,6 @@ import { QuizContent } from "./components";
 
 const Quiz = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;
-
-  console.log("Quiz", { props });
-
   const { goToQuestion } = stateQuiz;
 
   /* eslint-disable react-hooks/exhaustive-deps */
