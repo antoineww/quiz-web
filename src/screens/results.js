@@ -31,6 +31,7 @@ const Results = (props = {}) => {
   const { questionsWithAnswers } = stateQuiz;
 
   const { fraction, percentage } = getQuizScore(questionsWithAnswers);
+  const header = percentage ? `${strings.results_header} ${percentage} %` : "";
   const resultItems = questionsWithAnswers.map(questionWithAnswer => (
     <li class={`listItem ${getScoreClass(questionWithAnswer.is_correct)}`}>
       <div class="resultIcon">
@@ -42,9 +43,7 @@ const Results = (props = {}) => {
 
   return (
     <div class="container results">
-      <h1>
-        {strings.results_header} {`${percentage} %`}
-      </h1>
+      <h1>{header}</h1>
       <h1>{fraction}</h1>
       <ul id="list">{resultItems}</ul>
       <div class="footer">
