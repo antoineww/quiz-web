@@ -1,41 +1,43 @@
 import { getQuestions } from "./../../data/api";
 import constants from "./../constants";
 
-export const getQuestionsAction = () => {
-  return (dispatch, getState) => {
+export const getQuestionsAction = (params = {}) => {
+  return async (dispatch, getState) => {
     const {
-      progress: { getttingQuestions }
+      progress: { gettingQuestions }
     } = getState();
-    if (getttingQuestions) return;
+    if (gettingQuestions) return;
 
     dispatch({
       type: constants.GET_QUESTIONS_START
     });
 
-    getQuestions()
-      .then(response => {
-        const { data, status } = response;
-        if (status) {
-          const { results: questions } = data;
-          if (Array.isArray(questions)) {
-            dispatch({
-              type: constants.GET_QUESTIONS,
-              questions
-            });
-          }
+    try {
+      const { cb } = params;
+      const response = await getQuestions();
+      const { data, status } = response;
+      if (status) {
+        const { results: questions } = data;
+        if (Array.isArray(questions)) {
+          dispatch({
+            type: constants.GET_QUESTIONS,
+            questions
+          });
         }
+      }
 
-        dispatch({
-          type: constants.GET_QUESTIONS_END,
-          status
-        });
-      })
-      .catch(err => {
-        dispatch({
-          type: constants.GET_QUESTIONS_END,
-          err
-        });
+      dispatch({
+        type: constants.GET_QUESTIONS_END,
+        status
       });
+
+      cb();
+    } catch (err) {
+      dispatch({
+        type: constants.GET_QUESTIONS_END,
+        err
+      });
+    }
   };
 };
 
