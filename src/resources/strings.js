@@ -6,14 +6,12 @@ export default {
   home_begin: "BEGIN",
   home_loading: "Loading",
 
-  quiz_header: "Entertainment: Video Games",
-  quiz_mock_question: "Unturned originally started as a Roblox game.",
   quiz_not_found: "Woops, Quiz Unavailable",
   quiz_true: "True",
   quiz_false: "False",
   quiz_quit: "QUIT",
 
   results_header: "You scored",
-  results_play_again: "TRY AGAIN?",
-  results_exit: "PLAY AGAIN?"
+  results_try_again: "TRY AGAIN?",
+  results_play_again: "PLAY AGAIN?"
 };

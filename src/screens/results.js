@@ -32,8 +32,11 @@ const Results = (props = {}) => {
 
   const { fraction, percentage } = getQuizScore(questionsWithAnswers);
   const header = percentage ? `${strings.results_header} ${percentage} %` : "";
-  const resultItems = questionsWithAnswers.map(questionWithAnswer => (
-    <li className={`listItem ${getScoreClass(questionWithAnswer.is_correct)}`}>
+  const resultItems = questionsWithAnswers.map((questionWithAnswer, index) => (
+    <li
+      key={`resultItem${index}`}
+      className={`listItem ${getScoreClass(questionWithAnswer.is_correct)}`}
+    >
       <div className="resultIcon">
         {getScoreSymbol(questionWithAnswer.is_correct)}
       </div>
@@ -48,10 +51,10 @@ const Results = (props = {}) => {
       <ul id="list">{resultItems}</ul>
       <div className="footer">
         <button className="btn" onClick={() => beginQuiz(setStateQuiz)}>
-          {strings.results_play_again}
+          {strings.results_try_again}
         </button>
         <button className="btn btn-exit" onClick={() => exitQuiz(setStateQuiz)}>
-          {strings.results_exit}
+          {strings.results_play_again}
         </button>
       </div>
     </div>
