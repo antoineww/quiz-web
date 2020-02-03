@@ -2,6 +2,15 @@ import { QUIZ_STAGES, DEFAULT_STATE_QUIZ } from "../resources/constants";
 
 // USES React Hook values
 
+// Load new questions
+export const loadQuiz = (setStateQuiz = () => {}, autoStart = false) => {
+  setStateQuiz({
+    ...DEFAULT_STATE_QUIZ,
+    getFreshQuestions: true,
+    autoStart
+  });
+};
+
 // Go to New Quiz Screen
 export const beginQuiz = (setStateQuiz = () => {}) => {
   setStateQuiz({
@@ -21,6 +30,6 @@ export const quitQuiz = (stateQuiz = {}, setStateQuiz = () => {}) =>
 // Go To Home Screen
 export const exitQuiz = (setStateQuiz = () => {}) =>
   setStateQuiz({
-    stage: QUIZ_STAGES.HOME,
-    getFreshQuestions: true
+    stage: QUIZ_STAGES.HOME
+    // getFreshQuestions: true // Load new questions on navigation to Home Screen
   });

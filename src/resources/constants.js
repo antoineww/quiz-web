@@ -31,5 +31,6 @@ export const DEFAULT_STATE_QUIZ = {
   goToQuestion: 0,
 
   startNew: false,
-  getFreshQuestions: false
+  getFreshQuestions: false,
+  autoStart: false
 };

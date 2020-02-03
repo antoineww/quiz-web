@@ -1,6 +1,6 @@
 import React from "react";
 import strings from "./../resources/strings";
-import { beginQuiz } from "../helpers/navigationHooks";
+import { loadQuiz } from "../helpers/navigationHooks";
 
 export const LoadingButton = (props = {}) => (
   <button className="btn btn-loading">
@@ -34,7 +34,7 @@ const Home = (props = {}) => {
       {gettingQuestions ? (
         <LoadingButton />
       ) : (
-        <BeginButton onClick={() => beginQuiz(setStateQuiz)} />
+        <BeginButton onClick={() => loadQuiz(setStateQuiz, true)} />
       )}
     </div>
   );

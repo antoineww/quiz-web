@@ -17,15 +17,14 @@ const ScreenRouter = (props = {}) => {
   /* eslint-disable react-hooks/exhaustive-deps */
 
   // onClick Begin Button - copy fresh questions for quiz
-  useEffect(
-    () => canPrepareQuestionsForNewQuiz(stateQuiz, setStateQuiz, props),
-    [startNew]
-  );
+  useEffect(() => {
+    canPrepareQuestionsForNewQuiz(stateQuiz, setStateQuiz, props);
+  }, [startNew]);
 
-  // onNavigation to Home Screen - Load new questions
-  useEffect(() => canSupplyFreshQuestions(stateQuiz, setStateQuiz, props), [
-    getFreshQuestions
-  ]);
+  // Load new questions
+  useEffect(() => {
+    canSupplyFreshQuestions(stateQuiz, setStateQuiz, props);
+  }, [getFreshQuestions]);
   /* eslint-enable */
 
   const newProps = { ...props, stateQuiz, setStateQuiz };

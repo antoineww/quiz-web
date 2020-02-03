@@ -12,7 +12,7 @@ const Routes = (props = {}) => {
 
   /* eslint-disable react-hooks/exhaustive-deps */
   // onMount Load questions
-  useEffect(() => getQuestionsAction(), []);
+  // useEffect(() => getQuestionsAction(), []);
   /* eslint-enable */
 
   return <ScreenRouter {...props} />;
