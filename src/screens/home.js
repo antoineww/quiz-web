@@ -1,6 +1,6 @@
 import React from "react";
 import strings from "./../resources/strings";
-import { beginQuiz } from "./../helpers/hooks";
+import { beginQuiz } from "../helpers/navigationHooks";
 
 const Home = (props = {}) => {
   const { stateQuiz, setStateQuiz } = props;

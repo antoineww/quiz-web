@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import strings from "./../../resources/strings";
 
 import { onQuestionAnswered } from "./helpers";
-import { quitQuiz } from "./../../helpers/hooks";
+import { quitQuiz } from "../../helpers/navigationHooks";
 import { QuizContent } from "./components";
 
 const Quiz = (props = {}) => {

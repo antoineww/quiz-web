@@ -1,8 +1,8 @@
-import { QUIZ_STAGES, DEFAULT_STATE_QUIZ } from "./../resources/constants";
+import { QUIZ_STAGES, DEFAULT_STATE_QUIZ } from "../resources/constants";
 
 // USES React Hook values
 
-// Go fresh Quiz Screen
+// Go to New Quiz Screen
 export const beginQuiz = (setStateQuiz = () => {}) => {
   setStateQuiz({
     ...DEFAULT_STATE_QUIZ,
@@ -11,7 +11,7 @@ export const beginQuiz = (setStateQuiz = () => {}) => {
   });
 };
 
-// Go To Results Screenn
+// Go To Results Screen
 export const quitQuiz = (stateQuiz = {}, setStateQuiz = () => {}) =>
   setStateQuiz({
     ...stateQuiz,

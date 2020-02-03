@@ -2,7 +2,7 @@ import React from "react";
 import strings from "./../resources/strings";
 import { FaPlus, FaMinus, FaCircle } from "react-icons/fa";
 import { getQuizScore } from "./../helpers/common";
-import { beginQuiz, exitQuiz } from "./../helpers/hooks";
+import { beginQuiz, exitQuiz } from "../helpers/navigationHooks";
 
 const getScoreSymbol = is_correct => {
   switch (is_correct) {
