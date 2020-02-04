@@ -11,7 +11,9 @@ export const getQuizScore = (questionsWithAnswers = []) => {
   ).length;
   const denominator = questionsWithAnswers.length;
 
-  const percentage = Math.round((numerator / denominator) * 100);
+  let percentage = 0;
+  if (numerator > 0 && denominator > 0)
+    percentage = Math.round((numerator / denominator) * 100);
 
   return {
     fraction: `${numerator} / ${denominator}`,
